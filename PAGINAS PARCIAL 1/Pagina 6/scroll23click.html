@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #myImage {
+                position: absolute;
+                transition: transform 0.3s ease-in-out;
+            }
+            body {
+                background-image: url(cancha-dimensiones-futbol.jpg);
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="Cinnamoroll.webp" alt="Image" width="100" style="position: absolute; left: 40px; top: 409px;">
+        
+        <script>
+            document.addEventListener("click", function(event) {
+                var image = document.getElementById("myImage");
+                var x = event.clientX;
+                var y = event.clientY;
+                console.log("posicion x= "+x+"posicion y=  "+y);
+                
+                image.style.transform = "translate(" + x + "px, " + y + "px)";
+            });
+        </script>
+    </body>
+    </html>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+        
+        <img id="myImage" src="balon.png" alt="Image" width="50">
+        
+        <script>
+            document.addEventListener("click", function(event) {
+                var image = document.getElementById("myImage");
+                var x = event.clientX;
+                var y = event.clientY;
+                console.log(x);
+                console.log(y);
+                console.log(image);
+                image.style.transform = "translate(" + x + "px, " + y + "px)";
+            });
+        </script>
+    </body>
+    </html>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

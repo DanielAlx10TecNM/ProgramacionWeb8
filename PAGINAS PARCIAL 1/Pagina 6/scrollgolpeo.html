@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+        body {
+            background-image: url(cancha-dimensiones-futbol.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
+
+    <script>
+        let startX;
+        let startY;
+        let startTime;
+
+        function handleMouseDown(event) {
+            const image = document.getElementById("image");
+            const maxX = window.innerWidth - image.width;
+            const maxY = window.innerHeight - image.height;
+
+            startX = event.clientX;
+            startY = event.clientY;
+            startTime = Date.now();
+
+            image.style.left = startX + "px";
+            image.style.top = startY + "px";
+
+            document.addEventListener("mousemove", handleMouseMove);
+            document.addEventListener("mouseup", handleMouseUp);
+        }
+
+        function handleMouseMove(event) {
+            const image = document.getElementById("image");
+            const deltaX = event.clientX - startX;
+            const deltaY = event.clientY - startY;
+            const currentTime = Date.now();
+            const timeElapsed = currentTime - startTime;
+
+            const speedX = deltaX / timeElapsed;
+            const speedY = deltaY / timeElapsed;
+
+            image.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+
+            console.log(`Velocidad X: ${speedX.toFixed(2)} px/ms`);
+            console.log(`Velocidad Y: ${speedY.toFixed(2)} px/ms`);
+        }
+
+        function handleMouseUp() {
+            document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mouseup", handleMouseUp);
+        }
+
+        function moveImageRandomly() {
+            const image = document.getElementById("image");
+            const maxX = window.innerWidth - image.width;
+            const maxY = window.innerHeight - image.height;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            image.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+            setTimeout(moveImageRandomly, 2000); // Mover la imagen cada 2 segundos
+        }
+
+        moveImageRandomly(); // Iniciar la animación al cargar la página
+    </script>
+</head>
+<body>
+    <img id="image" src="./balon.png" alt="Image" width="50" onmousedown="handleMouseDown(event)">
+</body>
+</html>

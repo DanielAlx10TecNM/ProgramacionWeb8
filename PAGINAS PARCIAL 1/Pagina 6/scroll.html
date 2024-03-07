@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const img = document.querySelector('img');
+            const leftButton = document.getElementById('leftButton');
+            const rightButton = document.getElementById('rightButton');
+            let x = 0;
+            let screenWidth = window.innerWidth;
+
+            leftButton.addEventListener('click', () => {
+                if (x > -screenWidth) {
+                    x -= 10;
+                    img.style.transform = `translateX(${x}px)`;
+                }
+            });
+
+            rightButton.addEventListener('click', () => {
+                if (x < screenWidth) {
+                    x += 10;
+                    img.style.transform = `translateX(${x}px)`;
+                }
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    
+<button id="leftButton" type="button">⬅</button>
+<button id="rightButton" type="button">⮕ </button>
+<br>
+<br><br><br>
+<img src="balon.png" width="100" alt="balon">
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <style>
+            body {
+                background-image: url(cancha-dimensiones-futbol.jpg);
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+        </style>
+    </head>
+    <body>
+    <title>Move Image with Mouse</title>
+    <style>
+        #image {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="balon.png" alt="Image" width="50">
+
+    <script>
+        var image = document.getElementById('image');
+        var mouseX = 0;
+        var mouseY = 0;
+
+        document.addEventListener('mousemove', function(event) {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+        });
+
+        function updateImagePosition() {
+            var currentX = parseInt(image.style.left) || 0;
+            var currentY = parseInt(image.style.top) || 0;
+
+            var dx = (mouseX - currentX) / 10;
+            var dy = (mouseY - currentY) / 10;
+            
+            image.style.left = currentX + dx + 'px';
+            image.style.top = currentY + dy + 'px';
+
+            setTimeout(updateImagePosition, 15);
+        }
+
+        updateImagePosition();
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<!--
+   /* foto de balon png 
+
+    moverlo a la hipotenusa jasjkasjaskasjkasjasjk con un click
+    moverlo con la velocidad del clic dek mouse y seguir al puntero
+    golpear el balon con el mouse y que se mueva */
+-->
